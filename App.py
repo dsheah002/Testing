@@ -5,8 +5,6 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "Secret Key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = \
-#     'mysql+pymysql://DevLogMaterialInventory_adm:JZul3IM/lvBSnS0@devux-db.sin.infineon.com:3306/DevLogMaterialInventory'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -294,4 +292,5 @@ def delete_glue_type(glue_type_id):
 
 # Server configurations - REM CHANGE
 # app.run(debug=True, host="api.ap-sg-1.icp.infineon.com", port=6443)
-app.run(debug=True, host="127.0.0.1", port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
