@@ -10,6 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
 
 db = SQLAlchemy(app)
 
+db = SQLAlchemy(app)
+
 
 # Main page of glue
 class GlueType(db.Model):
